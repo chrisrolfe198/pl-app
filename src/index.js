@@ -5,12 +5,6 @@ import './pl-styles.css';
 import './index.css';
 import * as utils from './utils';
 
-console.log(process.env);
-
-if (!process.env.REACT_APP_COMPONENTS_IMPORT_NAME) {
-  throw new Error('No Components specified to import');
-}
-
 import('./build').then(components => {
   const location = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
 
