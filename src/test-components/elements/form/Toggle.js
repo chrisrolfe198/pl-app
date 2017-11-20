@@ -4,25 +4,21 @@ import Checkbox from './Checkbox';
 
 export default class Toggle extends PureComponent {
   render() {
+    const { label, ...otherProps } = this.props;
     const initialClasses = "toggle";
     const finalClasses = `${initialClasses} ${(this.props.className ? this.props.className : '')}`;
 
-    const propsCopy = {
-      ...this.props,
-      className: finalClasses,
-    }
+    otherProps.className = finalClasses;
 
-    delete propsCopy.label;
-
-    if (this.props.label) {
+    if (label) {
       return (
         <label className="toggle-label">
-          <Checkbox {...propsCopy} /> {this.props.label}
+          <Checkbox {...otherProps} /> {label}
         </label>
       )
     } else {
       return (
-        <Checkbox {...propsCopy} />
+        <Checkbox {...otherProps} />
       )
     }
   }
