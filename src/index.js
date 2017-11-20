@@ -11,7 +11,7 @@ if (!process.env.REACT_APP_COMPONENTS_IMPORT_NAME) {
   throw new Error('No Components specified to import');
 }
 
-import(process.env.REACT_APP_COMPONENTS_IMPORT_NAME).then(components => {
+import('./build').then(components => {
   const location = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
 
   const fullscreen = (utils.getQueryVariable('fullscreen') ? utils.getQueryVariable('fullscreen') : false)
