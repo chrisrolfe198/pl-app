@@ -39,6 +39,7 @@ body.fullscreen {
 
 .list-item {
   margin-bottom: 10px;
+  position: relative;
 }
 
 .list-title {
@@ -57,4 +58,23 @@ body.fullscreen {
   font-size: 16px;
   border-bottom: solid #ccc 1px;
   font-weight: normal;
+}
+
+.list-item > div > .modal {
+  position: static;
+  width: 100%;
+  opacity: 1;
+  height: 400px;
+  overflow: scroll;
+}
+
+.list-item > div > .modal .modal-content {
+  position: relative;
+  top: 0;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.fullscreen > .list-item > div > .modal {
+  height: 100vh;
 }
