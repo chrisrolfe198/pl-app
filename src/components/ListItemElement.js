@@ -13,14 +13,14 @@ const ListItemElement = (props) => {
 
         if (utils.isFunction(Component)) {
           return (
-            <div key={item[0]} className={(props.fullscreen === 'true' ? 'fullscreen' : '')}>
+            <div key={item[0]} className={'list-item-inner-container' + (props.fullscreen === 'true' ? 'fullscreen' : '')}>
               {props.fullscreen !== 'true' && <h2 className="list-item-title">{item[0]}</h2>}
               <Component />
             </div>
           );
         } else {
           return (
-            <div key={item[0]} className={(props.fullscreen === 'true' ? 'fullscreen' : '')}>
+            <div key={item[0]} className={'list-item-inner' + (props.fullscreen === 'true' ? 'fullscreen' : '')}>
               {props.fullscreen !== 'true' && <h2 className="list-sub-title">{item[0]}</h2>}
               <ListItemElement listItems={Component} />
             </div>

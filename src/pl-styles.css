@@ -60,7 +60,16 @@ body.fullscreen {
   font-weight: normal;
 }
 
-.list-item > div > .modal {
+.list-item-inner-container {
+  position: relative;
+}
+
+.list-item-inner-container .modal {
+  position: absolute;
+}
+
+/*.list-item-inner-container > .modal,
+.list-item-inner-container > .container > .modal {
   position: static;
   width: 100%;
   opacity: 1;
@@ -68,12 +77,13 @@ body.fullscreen {
   overflow: scroll;
 }
 
-.list-item > div > .modal .modal-content {
+.list-item-inner-container > .modal .modal-content,
+.list-item-inner-container > .container > .modal .modal-content, {
   position: relative;
   top: 0;
   margin-top: 100px;
   margin-bottom: 100px;
-}
+}*/
 
 .fullscreen > .list-item > div > .modal {
   height: 100vh;

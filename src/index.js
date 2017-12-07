@@ -5,7 +5,7 @@ import './pl-styles.css';
 import './index.css';
 import * as utils from './utils';
 
-import('./build').then(components => {
+import(process.env.REACT_APP_PATH_TO_MODULES).then(components => {
   const location = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
 
   const fullscreen = (utils.getQueryVariable('fullscreen') ? utils.getQueryVariable('fullscreen') : false)
