@@ -3,7 +3,12 @@
 
 'use strict';
 
+const chalk = require('chalk');
 const path = require('path');
+
+if (!process.env.APP_DIRECTORY) {
+  process.env.APP_DIRECTORY = path.resolve('./node_modules/pl-app');
+}
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'development';
@@ -11,6 +16,10 @@ process.env.NODE_ENV = 'development';
 
 if (process.env.REACT_APP_PATH_TO_MODULES) {
   process.env.REACT_APP_PATH_TO_MODULES = path.resolve(process.env.REACT_APP_PATH_TO_MODULES);
+} else {
+  process.env.REACT_APP_PATH_TO_MODULES = path.resolve('./components');
+  console.log(chalk.white.bgRed.bold('Defaulting to the ./components as the path to modules.'));
+  console.log(chalk.white.bgRed.bold('If this is incorrect use the environment variable REACT_APP_PATH_TO_MODULES to override'))
 }
 
 // Makes the script crash on unhandled rejections instead of silently
@@ -24,7 +33,6 @@ process.on('unhandledRejection', err => {
 require('../config/env');
 
 const fs = require('fs');
-const chalk = require('chalk');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const clearConsole = require('react-dev-utils/clearConsole');
