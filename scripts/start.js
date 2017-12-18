@@ -22,6 +22,14 @@ if (process.env.REACT_APP_PATH_TO_MODULES) {
   console.log(chalk.white.bgRed.bold('If this is incorrect use the environment variable REACT_APP_PATH_TO_MODULES to override'))
 }
 
+if (process.env.REACT_APP_PATH_TO_STYLES) {
+  process.env.REACT_APP_PATH_TO_STYLES = path.resolve(process.env.REACT_APP_PATH_TO_STYLES);
+} else {
+  process.env.REACT_APP_PATH_TO_STYLES = path.resolve('./css/main.css');
+  console.log(chalk.white.bgBlue.bold('Defaulting to the ./css/main.css as the path to styles.'));
+  console.log(chalk.white.bgBlue.bold('If this is incorrect use the environment variable REACT_APP_PATH_TO_STYLES to override'))
+}
+
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
 // terminate the Node.js process with a non-zero exit code.

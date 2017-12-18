@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Container from './components/Container';
 import './pl-styles.css';
-import './index.css';
 import * as utils from './utils';
 
-import(process.env.REACT_APP_PATH_TO_MODULES).then(components => {
+Promise.all([
+  import(process.env.REACT_APP_PATH_TO_MODULES),
+  import(process.env.REACT_APP_PATH_TO_STYLES)
+]).then(components => {
   const location = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
 
   const fullscreen = (utils.getQueryVariable('fullscreen') ? utils.getQueryVariable('fullscreen') : false)
@@ -15,7 +17,9 @@ import(process.env.REACT_APP_PATH_TO_MODULES).then(components => {
   const sections = {};
   let sectionsObjectList = {};
 
-  let componentsToOperateOn = components.default;
+  let componentsToOperateOn = components[0].default;
+
+  console.log(componentsToOperateOn);
 
   if (location.length) {
     for (let item of location) {
@@ -33,7 +37,7 @@ import(process.env.REACT_APP_PATH_TO_MODULES).then(components => {
   }
 
   // This will give use the section names
-  for (let item of Object.entries(components.default)) {
+  for (let item of Object.entries(components[0].default)) {
     sections[item[0]] = [];
     let sectionsObject = {};
 
@@ -63,5 +67,5 @@ import(process.env.REACT_APP_PATH_TO_MODULES).then(components => {
   const newItems = utils.getObjectForNavItem(sectionsObjectList, writePath);
   const items = Object.assign({}, baseItems, newItems, lastItems);
 
-  ReactDOM.render(<Container fullscreen={fullscreen} components={components.default} cssUrl={cssUrl} navItems={items} sectionsObjectList={sectionsObjectList} writePath={writePath} childObjects={childObjects} />, document.getElementById('root'));
+  ReactDOM.render(<Container fullscreen={fullscreen} components={components[0].default} cssUrl={cssUrl} navItems={items} sectionsObjectList={sectionsObjectList} writePath={writePath} childObjects={childObjects} />, document.getElementById('root'));
 })
