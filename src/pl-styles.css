@@ -88,3 +88,11 @@ body.fullscreen {
 .fullscreen > .list-item > div > .modal {
   height: 100vh;
 }
+
+.fullscreen .navigation {
+  display: none;
+}
+
+.selenium .navigation .navigation {
+  display: block;
+}
