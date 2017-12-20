@@ -4,7 +4,7 @@ import ListItemElement from './ListItemElement';
 const ListElement = (props) => {
   let objectIndex = [];
   if (props.objectIndex) {
-    objectIndex = props.objectIndex;
+    objectIndex = props.objectIndex.slice();
   }
   objectIndex.push(props.title.toLowerCase());
 

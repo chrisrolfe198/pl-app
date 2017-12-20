@@ -68,7 +68,7 @@ Promise.all([
   const newItems = utils.getObjectForNavItem(sectionsObjectList, writePath);
   const items = Object.assign({}, baseItems, newItems, lastItems);
 
-  let objectIndex = location || [];
+  let objectIndex = location;
 
   if (objectIndex.length) {
     objectIndex.pop();
