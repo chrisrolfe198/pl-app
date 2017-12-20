@@ -14,6 +14,7 @@ if (!process.env.APP_DIRECTORY) {
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
 
+// TODO: Look at handling configuration being passed through better
 if (process.env.REACT_APP_PATH_TO_MODULES) {
   process.env.REACT_APP_PATH_TO_MODULES = path.resolve(process.env.REACT_APP_PATH_TO_MODULES);
 } else {
@@ -28,6 +29,14 @@ if (process.env.REACT_APP_PATH_TO_STYLES) {
   process.env.REACT_APP_PATH_TO_STYLES = path.resolve('./css/main.css');
   console.log(chalk.white.bgBlue.bold('Defaulting to the ./css/main.css as the path to styles.'));
   console.log(chalk.white.bgBlue.bold('If this is incorrect use the environment variable REACT_APP_PATH_TO_STYLES to override'))
+}
+
+if (process.env.REACT_APP_PATH_TO_DATA) {
+  process.env.REACT_APP_PATH_TO_DATA = path.resolve(process.env.REACT_APP_PATH_TO_DATA);
+} else {
+  process.env.REACT_APP_PATH_TO_DATA = process.env.REACT_APP_PATH_TO_MODULES + '/data.json';
+  console.log(chalk.white.bgGreen.bold('Defaulting to the '+process.env.REACT_APP_PATH_TO_MODULES+'/data.json as the path to styles.'));
+  console.log(chalk.white.bgGreen.bold('If this is incorrect use the environment variable REACT_APP_PATH_TO_DATA to override'))
 }
 
 // Makes the script crash on unhandled rejections instead of silently

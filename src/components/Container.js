@@ -20,9 +20,9 @@ const Container = (props) => {
           // THIS IS WEIRD
           // todo: this needs to make more sense, we can probably combine the ListElement and ListItemElement better than this
           // What happens if childObjects contains more than one function?
-          return (<ListItemElement fullscreen={props.fullscreen} key={item[0]} listItems={childObjects} />)
+          return (<ListItemElement objectIndex={props.objectIndex} data={props.data} fullscreen={props.fullscreen} key={item[0]} listItems={childObjects} />)
         } else {
-          return (<ListElement fullscreen={props.fullscreen} key={item[0]} title={item[0]} listItems={item[1]} />)
+          return (<ListElement objectIndex={props.objectIndex} data={props.data} fullscreen={props.fullscreen} key={item[0]} title={item[0]} listItems={item[1]} />)
         }
       })}
     </div>
