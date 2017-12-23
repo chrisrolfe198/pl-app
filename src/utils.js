@@ -37,9 +37,11 @@ export const buildSectionNames = (name, item) => {
 
         sections[name] = retrievedSections;
         sectionsObject[innerItem[0]] = retrievedSectionsObjects;
-      } else {
+      } else if (innerItem[1] !== undefined) {
         sections[name].push(innerItem[0]);
         sectionsObject[innerItem[0]] = innerItem[1];
+      } else {
+        throw new Error('There is an issue with importing your components, have you exported them all correctly?');
       }
     }
   }
