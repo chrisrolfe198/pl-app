@@ -10,7 +10,12 @@ Promise.all([
   import(process.env.REACT_APP_PATH_TO_DATA),
 ]).then(importedItems => {
   const components = importedItems[0];
-  const data = importedItems[2];
+  let data = importedItems[2];
+
+  if (data.default) {
+    data = data.default
+  }
+
   const location = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
 
   const fullscreen = (utils.getQueryVariable('fullscreen') ? utils.getQueryVariable('fullscreen') : false)
