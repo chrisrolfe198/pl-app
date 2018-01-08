@@ -46,7 +46,9 @@ const ListItemElement = (props) => {
           return (
             <div key={item[0]} className={'list-item-inner-container' + (props.fullscreen === 'true' ? 'fullscreen' : '')}>
               {props.fullscreen !== 'true' && <h2 className="list-item-title">{item[0]}</h2>}
-              <Component {...propsToPassToComponent}>{children}</Component>
+              <div className="list-item-element-container">
+                <Component {...propsToPassToComponent}>{children}</Component>
+              </div>
             </div>
           );
         } else {

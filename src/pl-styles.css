@@ -67,33 +67,9 @@ html > body.fullscreen {
   margin: 10px 0;
 }
 
-.list-item-inner-container {
+.list-item-inner-container,
+.list-item-element-container {
   position: relative;
-}
-
-.list-item-inner-container .modal {
-  position: absolute;
-}
-
-/*.list-item-inner-container > .modal,
-.list-item-inner-container > .container > .modal {
-  position: static;
-  width: 100%;
-  opacity: 1;
-  height: 400px;
-  overflow: scroll;
-}
-
-.list-item-inner-container > .modal .modal-content,
-.list-item-inner-container > .container > .modal .modal-content, {
-  position: relative;
-  top: 0;
-  margin-top: 100px;
-  margin-bottom: 100px;
-}*/
-
-.fullscreen > .list-item > div > .modal {
-  height: 100vh;
 }
 
 .fullscreen .navigation {
