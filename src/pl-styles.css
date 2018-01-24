@@ -11,23 +11,38 @@ html > body.fullscreen {
 }
 
 .navigation {
+  background: black;
+  margin-left: -25px;
+  margin-right: -25px;
+  margin-top: -15px;
+  padding: 5px 25px;
   list-style: none;
   display: flex;
-  padding: 0;
+}
+
+.navigation .navigation {
+  display: none;
   margin: 0;
+}
+
+.navigation-item--active > div > .navigation {
+  display: block;
+}
+
+.navigation > .navigation-item {
+  display: block;
 }
 
 .navigation-item {
   padding: 0 3px;
 }
 
-.navigation-item:hover > div > .navigation {
-  display: block;
+.navigation-item > a {
+  color: white;
 }
 
-.navigation .navigation {
+.navigation-item .navigation {
   display: none;
-  margin: 0;
 }
 
 .list {
